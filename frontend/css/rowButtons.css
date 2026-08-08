@@ -34,6 +34,8 @@
   background: rgba(192, 57, 43, 0.08);
 }
 
-i {
-    color: black;
+#order{
+  color: #000;
+  background: transparent;
+  border: 1px solid var(--border);
 }
