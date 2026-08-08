@@ -1,0 +1,20 @@
+/* ── Container ──────────────────────────────────────────────── */
+.pdt-container {
+  position: relative;
+  max-width: 760px;
+  margin: 0 auto;
+  background-color: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 2rem;
+  overflow: hidden;
+  transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+
+.pdt-container::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, var(--text-muted), transparent);
+}

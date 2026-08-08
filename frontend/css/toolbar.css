@@ -1,0 +1,26 @@
+#toolbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  margin: 1.5rem 0 1rem;
+  flex-wrap: wrap;
+}
+
+#search form {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+#search label {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
+
+#search-input {
+  width: 200px;
+}

@@ -1,0 +1,65 @@
+/* ── Header ─────────────────────────────────────────────────── */
+.pdt-container header {
+  display: block;
+  justify-content: flex-end;
+  align-items: center;
+  padding-bottom: 1.5rem;
+  margin-bottom: 1.5rem;
+  border-bottom: 1px solid var(--border);
+}
+
+h1 {
+  font-family: var(--font-mono);
+  font-size: 1.5rem;
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--text);
+}
+
+/* ── Header actions (export + theme toggle) ─────────────────── */
+.header-actions {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.back-btn,
+#logout-btn,
+#import,
+#export,
+#users-btn {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.45rem 0.9rem;
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  background: transparent;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  cursor: pointer;
+  text-decoration: none;
+  transition: color var(--transition), border-color var(--transition), background var(--transition);
+}
+
+.back-btn:hover,
+#logout-btn:hover,
+#import:hover,
+#users-btn:hover,
+#export:hover {
+  color: var(--text);
+  border-color: var(--border-hi);
+  background: var(--surface2);
+}
+
+ i {
+  color: inherit;
+  font-size: 1rem;
+  color: var(--accent)
+}
+
+

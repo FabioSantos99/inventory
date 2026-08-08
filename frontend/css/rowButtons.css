@@ -1,0 +1,39 @@
+.edit-item,
+.delete-item {
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  padding: 0.3rem 0.6rem;
+  border-radius: var(--radius);
+  border: 1px solid transparent;
+  background: transparent;
+  cursor: pointer;
+  transition: color var(--transition), border-color var(--transition), background var(--transition);
+}
+
+.edit-item {
+  color: var(--text-muted);
+  border-color: var(--border);
+}
+
+.edit-item:hover {
+  color: var(--text);
+  border-color: var(--border-hi);
+  background: var(--surface2);
+}
+
+.delete-item {
+  color: var(--danger);
+  border-color: transparent;
+}
+
+.delete-item:hover {
+  color: var(--danger-hi);
+  border-color: var(--danger);
+  background: rgba(192, 57, 43, 0.08);
+}
+
+i {
+    color: black;
+}
