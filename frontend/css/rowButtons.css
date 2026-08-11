@@ -35,7 +35,13 @@
 }
 
 #order{
-  color: #000;
   background: transparent;
-  border: 1px solid var(--border);
+  border: 1px solid var(--border-hi);
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+#order i:hover{
+  background: #525151;
+  transition: 0.5s;
 }

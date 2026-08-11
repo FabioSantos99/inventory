@@ -1,4 +1,4 @@
-import './css/style.css';
+import './css/body.css';
 import './css/container.css';
 import './css/header.css';
 import './css/responsive.css';
@@ -10,6 +10,8 @@ import './css/edit.css';
 import './css/utilities.css';
 import './css/rowButtons.css';
 
-import './inventoryFunctions/addProducts.js'
+import{putProducts} from './inventoryFunctions/addProducts.js'
+
+putProducts();
 
 
