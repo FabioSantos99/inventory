@@ -10,8 +10,14 @@ import './css/edit.css';
 import './css/utilities.css';
 import './css/rowButtons.css';
 
-import{putProducts} from './inventoryFunctions/addProducts.js'
+import { loadProducts } from './inventoryFunctions/loadProducts.js';
 
-putProducts();
+window.addEventListener("DOMContentLoaded", async () => {
+    const token = localStorage.getItem("token");
+
+    if (token) {
+        await loadProducts();
+    }
+})
 
 

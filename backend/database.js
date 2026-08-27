@@ -22,13 +22,13 @@ const initDB = async () => {
         )
     `);
 
-    await pool.querey(`
+    await pool.query(`
         CREATE TABLE IF NOT EXISTS users (
-        id SERIAL PRIMARY KEY,
-        username TEXT NOT NULL UNIQUE,
-        password TEXT NOT NULL,
-        role TEXT NOT NULL DEFAULT 'operator'
-             CHECK(role IN('admin', 'operator'))
+        id       SERIAL PRIMARY KEY,
+        username TEXT   NOT NULL UNIQUE,
+        password TEXT   NOT NULL,
+        role     TEXT   NOT NULL DEFAULT 'operator'
+                 CHECK(role IN('admin', 'operator'))
         )
     `);
 
