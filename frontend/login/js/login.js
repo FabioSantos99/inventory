@@ -6,7 +6,7 @@ const loginBtn = document.querySelector("#login-btn");
 const loginError = document.querySelector("#login-error");
 
 if(localStorage.getItem("token")) {
-    windowl.location.replace("index.html");
+    window.location.replace("/index.html");
 }
 
 loginBtn.addEventListener("click", async () => {
@@ -36,7 +36,7 @@ loginBtn.addEventListener("click", async () => {
         localStorage.setItem("role", data.role);
         localStorage.setItem("username", data.username);
 
-        window.location.replace("index.html");;
+        window.location.replace("/index.html");;
 
     } catch {
         showError("Servidor indisponível. Tente novamente.");

@@ -2,7 +2,6 @@ import './css/body.css';
 import './css/container.css';
 import './css/header.css';
 import './css/responsive.css';
-import './css/theme.css';
 import './css/form.css';
 import './css/table.css';
 import './css/toolbar.css';

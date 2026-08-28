@@ -7,7 +7,7 @@ import {
     getAllProducts,
     insertProduct,
     deleteProduct,
-    updatedProduct,
+    updateProduct,
     createUser,
     findUserByUsername,
     getAllUsers,
@@ -16,7 +16,7 @@ import {
 import { authenticate, isAdmin, JWT_SECRET } from "./auth.js";
 
 const app = express();
-const PORT = process.env.PORT || 3000;
+const PORT = 3000;
 
 app.use(cors());
 app.use(express.json());
@@ -63,7 +63,7 @@ app.get("/products", authenticate, async (req, res) => {
 });
 
 // ---POST / products -----------------------------------
-app.post("products", authenticate, async (req, res) => {
+app.post("/products", authenticate, async (req, res) => {
     const { name, price, quantity, type} = req.body;
 
     if(!name || !price || !quantity || !type) {
@@ -80,7 +80,7 @@ app.post("products", authenticate, async (req, res) => {
 
 // ----- PUT /products/:id ----------------------
 
-app.put("products/:id", authenticate, async (req, res) => {
+app.put("/products/:id", authenticate, async (req, res) => {
     const { id } = req.params;
     const { name, price, quantity, type } = req.body;
 
@@ -89,7 +89,7 @@ app.put("products/:id", authenticate, async (req, res) => {
     }    
 
     try {
-        const rowCount = await updatedProduct(parseInt(id), name, parseFloat(price), parseInt(quantity), type);
+        const rowCount = await updateProduct(parseInt(id), name, parseFloat(price), parseInt(quantity), type);
         if(rowCount === 0) {
             return res.status(404).json({ error: "Produto não encontrado." });
         }
@@ -102,7 +102,7 @@ app.put("products/:id", authenticate, async (req, res) => {
 
 // -------DELETE /products/:id - apenas admin --------------------------
 
-app.delete("products/:id", authenticate, isAdmin, async (req, res) => {
+app.delete("/products/:id", authenticate, isAdmin, async (req, res) => {
     const { id } = req.params;
 
     try {
