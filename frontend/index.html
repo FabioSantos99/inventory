@@ -1,108 +1,13 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=DM+Sans:wght@400;500&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
-  <link rel="icon" type="image/x-icon" href="/favicon.ico" />
-    <title>Eletronics Inventory</title>
-    
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>frontend</title>
   </head>
   <body>
-    <div class="pdt-container">
-      <header>
-        <h1>Eletronics Inventory</h1>
-      <span id="user-info"> </span>
-
-      <div class="header-actions">
-        <button type="button" id="logout-btn" title="Logout"><i class="bi bi-box-arrow-right"></i></button>
-        <a href="users.html" id="users-btn"><i class="bi bi-people"></i> Users</a>
-        <!-- input escondido que abre o seletor de arquivo -->
-        <input type="file" id="import-input" accept=".xlsx, .xls, .csv" style="display:none" />
-        <button type="button" id="import">Import <i class="bi bi-upload"></i></button>
-        <button type="button" id="export">Export CSV <i class="bi bi-download"></i></button>
-        <button type="button" id="theme-toggle" title="Toggle theme"><i class="bi bi-sun"></i></button>
-
-      </div>
-      </header>
-
-      <form id="inventory-form">
-        <div class="form-control">
-          <input type="text" id="name" class="prodInput" placeholder="Product Name" />
-          <input type="text" id="price" class="prodInput" placeholder="Product Price" />
-          <input type="text" id="quantity" class="prodInput" placeholder="Quantity" />
-          <select name="type" id="typePdt" class="prodInput">
-            <option value="">Type pdt</option>
-            <option value="phone">Phone</option>
-            <option value="console">Console</option>
-            <option value="computer">Computer</option>
-            <option value="tv">TV</option>
-            <option value="others">Others</option>
-          </select>
-
-          <div id="edit-table" class="hide">
-            <form>
-              <h3>Edit Product:</h3>
-              <input type="text" id="edit-name" placeholder="edit name">
-              <input type="text" id="edit-price" placeholder="edit price">
-              <input type="text" id="edit-quantity" placeholder="edit quantity">
-              <select name="type" id="edit-type">
-                <option value="">Type pdt</option>
-                <option value="phone">Phone</option>
-                <option value="console">Console</option>
-                <option value="computer">Computer</option>
-                <option value="tv">TV</option>
-                <option value="others">Others</option>
-              </select>
-          </div>
-
-          <div class="edit-actions">
-            <button type="submit" id="submit">Confirm <i class="bi bi-check-square-fill"></i></button>
-            <button id="cancel-edit-btn">Cancel</button>
-          </div>
-        </div>
-      </form>
-
-    <div id="toolbar">
-      <div id="search">
-        <form>
-          <label for="search-input">Search</label>
-          <input type="text" id="search-input" placeholder="Search Product">
-        </form>
-      </div>
-    
-
-      <div id="filter">
-        <select name="" id="filter-select">
-          <option value="all">All</option>
-          <option value="phone">Phone</option>
-          <option value="console">Console</option>
-          <option value="computer">Computer</option>
-          <option value="tv">TV</option>
-          <option value="others">Others</option>
-        </select>
-      </div>
-    </div>
-      <table>
-        <thead>
-          <tr>
-            <th>Product <button id="order"><i class="bi bi-arrow-down-short"></i></button></th>
-            <th>Price <button id="order"><i class="bi bi-arrow-down-short"></i></button></th>
-            <th>Quantity <button id="order"><i class="bi bi-arrow-down-short"></i></button></th>
-            <th>Type</th>
-          </tr>
-        </thead>
-        <tbody id="product-list">
-          
-        </tbody>
-      </table>
-    </div>
-
-    <script type="module" src="main.js"></script>
-    <script type="module" src="auth-guard.js"></script>
-    <script type="module" src="Theme/theme.js"></script>
+    <div id="root"></div>
+    <script type="module" src="/src/main.jsx"></script>
   </body>
 </html>
