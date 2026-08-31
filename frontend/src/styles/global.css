@@ -1,0 +1,157 @@
+:root {
+  --bg:             #0a0a0a;
+  --surface:        #111111;
+  --surface2:       #1a1a1a;
+  --border:         #2a2a2a;
+  --border-hi:      #3d3d3d;
+  --text:           #e8e8e8;
+  --text-muted:     #7a7a7a;
+  --accent:         #e8e8e8;
+  --danger:         #c0392b;
+  --danger-hi:      #e74c3c;
+  --modal-overlay:  rgba(10, 10, 10, 0.88);
+  --input-focus-bg: #1f1f1f;
+  --radius:         6px;
+  --font-mono:      'DM Mono', 'Fira Mono', 'Courier New', monospace;
+  --font-sans:      'DM Sans', 'Helvetica Neue', Helvetica, sans-serif;
+  --transition:     0.18s ease;
+}
+
+/* ── Variables — Light ───────────────────────────────────────── */
+[data-theme="light"] {
+  --bg:             #f4f3f0;
+  --surface:        #ffffff;
+  --surface2:       #ebebeb;
+  --border:         #dddbd7;
+  --border-hi:      #b8b5b0;
+  --text:           #1a1a1a;
+  --text-muted:     #7a7875;
+  --accent:         #1a1a1a;
+  --danger:         #c0392b;
+  --danger-hi:      #a93226;
+  --modal-overlay:  rgba(200, 198, 195, 0.88);
+  --input-focus-bg: #f9f9f7;
+}
+
+/* ── Reset ──────────────────────────────────────────────────── */
+*, *::before, *::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* ── Base ───────────────────────────────────────────────────── */
+body {
+  font-family: var(--font-sans);
+  background-color: var(--bg);
+  color: var(--text);
+  min-height: 100vh;
+  padding: 2rem 1rem 4rem;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+:focus-visible {
+  outline: 2px solid var(--text);
+  outline-offset: 2px;
+}
+
+/* ── Inputs & selects globais ───────────────────────────────── */
+input, select {
+  font-family: var(--font-sans);
+  font-size: 0.875rem;
+  color: var(--text);
+  background-color: var(--surface2);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 0.55rem 0.75rem;
+  transition: border-color var(--transition), background var(--transition);
+  appearance: none;
+  -webkit-appearance: none;
+}
+
+input::placeholder {
+  color: var(--text-muted);
+}
+
+input:hover, select:hover {
+  border-color: var(--border-hi);
+}
+
+input:focus, select:focus {
+  outline: none;
+  border-color: var(--text-muted);
+  background-color: var(--input-focus-bg);
+}
+
+select {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%237a7a7a' stroke-width='1.5' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 0.65rem center;
+  padding-right: 2rem;
+  cursor: pointer;
+}
+
+option {
+  background-color: var(--surface2);
+  color: var(--text);
+}
+
+/* ── Botão Add ──────────────────────────────────────────────── */
+.add {
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+  padding: 0.55rem 1.1rem;
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  font-weight: 500;
+  letter-spacing: 0.06em;
+  color: var(--bg);
+  background: var(--text);
+  border: 1px solid var(--text);
+  border-radius: var(--radius);
+  cursor: pointer;
+  transition: background var(--transition), color var(--transition);
+  white-space: nowrap;
+}
+
+.add:hover {
+  background: transparent;
+  color: var(--text);
+}
+
+/* ── Edit / Delete buttons ──────────────────────────────────── */
+.edit-item,
+.delete-item {
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  padding: 0.3rem 0.6rem;
+  border-radius: var(--radius);
+  border: 1px solid transparent;
+  background: transparent;
+  cursor: pointer;
+  transition: color var(--transition), border-color var(--transition), background var(--transition);
+}
+
+.edit-item {
+  color: var(--text-muted);
+  border-color: var(--border);
+}
+
+.edit-item:hover {
+  color: var(--text);
+  border-color: var(--border-hi);
+  background: var(--surface2);
+}
+
+.delete-item {
+  color: var(--danger);
+}
+
+.delete-item:hover {
+  color: var(--danger-hi);
+  border-color: var(--danger);
+  background: rgba(192, 57, 43, 0.08);
+}

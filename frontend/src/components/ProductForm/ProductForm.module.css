@@ -1,0 +1,60 @@
+.form {
+    margin-bottom: 1.5rem;
+}
+
+.formControl {
+    display: flex;
+    gap: 0.75rem;
+    margin-bottom: 0.75rem;
+}
+
+.input {
+    flex: 1;
+    padding: 0.6rem;
+    font-family: var(--font-mono);
+    font-size: 0.85rem;
+    border-radius: var(--radius);
+    background: var(--surface);
+    color: var(--text);
+    outline: none;
+    transition: border-color var(--transition);
+}
+
+.select {
+    flex: 1;
+    padding: 0.6rem 0.8rem;
+    font-family: var(--font-mono);
+    font-size: 0.85rem;
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    background: var(--surface);
+    color: var(--text);
+    cursor: pointer;
+    outline: none;
+    transition: border-color var(--transition);
+}
+
+.select:focus {
+    border-color: var(--border-hi);
+}
+
+.button {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    padding: 0.6rem 1.2rem;
+    font-family: var(--font-mono);
+    font-size: 0.85rem;
+    font-weight: 500;
+    color: var(--text);
+    background: var(--surface2);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    cursor: pointer;
+    transition: 0.5s background var(--transition), border-color var(--transition);
+}
+
+.button:hover {
+    background: var(--border);
+    border-color: var(--border-hi);
+}

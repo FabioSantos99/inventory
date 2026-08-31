@@ -1,14 +1,13 @@
-/* ── Header ─────────────────────────────────────────────────── */
-.pdt-container header {
-  display: block;
-  justify-content: flex-end;
+.header {
+  display: flex;
+  justify-content: space-between;
   align-items: center;
   padding-bottom: 1.5rem;
   margin-bottom: 1.5rem;
   border-bottom: 1px solid var(--border);
 }
 
-h1 {
+.title {
   font-family: var(--font-mono);
   font-size: 1.5rem;
   font-weight: 500;
@@ -17,18 +16,40 @@ h1 {
   color: var(--text);
 }
 
-/* ── Header actions (export + theme toggle) ─────────────────── */
-.header-actions {
+.actions {
   display: flex;
   align-items: center;
   gap: 0.5rem;
 }
 
-.back-btn,
-#logout-btn,
-#import,
-#export,
-#users-btn {
+.userInfo {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  color: var(--text-muted);
+}
+
+.logoutBtn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 34px;
+  height: 34px;
+  background: transparent;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  cursor: pointer;
+  color: var(--text-muted);
+  font-size: 1rem;
+  transition: color var(--transition), border-color var(--transition), background var(--transition);
+}
+
+.logoutBtn:hover {
+  color: var(--text);
+  border-color: var(--border-hi);
+  background: var(--surface2);
+}
+
+.usersBtn {
   display: flex;
   align-items: center;
   gap: 0.4rem;
@@ -46,20 +67,8 @@ h1 {
   transition: color var(--transition), border-color var(--transition), background var(--transition);
 }
 
-.back-btn:hover,
-#logout-btn:hover,
-#import:hover,
-#users-btn:hover,
-#export:hover {
+.usersBtn:hover {
   color: var(--text);
   border-color: var(--border-hi);
   background: var(--surface2);
 }
-
- i {
-  color: inherit;
-  font-size: 1rem;
-  color: var(--accent)
-}
-
-
