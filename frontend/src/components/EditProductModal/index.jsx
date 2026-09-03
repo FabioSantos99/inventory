@@ -23,14 +23,21 @@ const EditProductModal = ({ product, onClose, onUpdated }) => {
   }, [product]);
 
   const handleSubmit = async (e) => {
-    e.preventDefault();
+    e.preventDefault();  
     try {
-      const { data } = await updateProduct(product.id, {
+      await updateProduct(product.id, {
+        ...editForm,
+        price: parseFloat(editForm.price),
+      });
+
+      onUpdated({
+        ...product,
         ...editForm,
         price: parseFloat(editForm.price).toFixed(2),
       });
-      onUpdated(data);
+
       onClose();
+
     } catch {
       alert("Erro ao atualizar produto.");
     }
@@ -74,6 +81,8 @@ const EditProductModal = ({ product, onClose, onUpdated }) => {
             <option value="console">Console</option>
             <option value="computer">Computer</option>
             <option value="tv">TV</option>
+            <option value="Other">Other</option>
+
           </select>
           <div className={styles.actions}>
             <button type="submit" className={styles.submitButton}>

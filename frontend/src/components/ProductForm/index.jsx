@@ -17,7 +17,7 @@ const ProductForm = ({ onProductAdded }) => {
     try {
       const { data } = await saveProduct({
         name,
-        price: parseFloat(price).toFixed(2),
+        price: parseFloat(price),
         quantity,
         type,
       });
@@ -68,6 +68,8 @@ const ProductForm = ({ onProductAdded }) => {
           <option value="console">Console</option>
           <option value="computer">Computer</option>
           <option value="tv">TV</option>
+          <option value="Other">Other</option>
+
         </select>
       </div>
       <button type="submit" className={styles.button}>

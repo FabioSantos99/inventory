@@ -41,9 +41,9 @@ const Inventory = () => {
         seEditingProduct(product);
     };
 
-    const handleEditSave = (updatedProduct) => {
-        setProducts((prev) => 
-            prev.map((p) => (p.id === updatedProduct.id ? { ...p, ...updatedProduct } :p))
+        const handleEditSave = (updatedProduct) => {
+        setProducts((prev) =>
+            prev.map((p) => (p.id === updatedProduct.id ? updatedProduct : p))
         );
         seEditingProduct(null);
     };
@@ -76,34 +76,85 @@ const Inventory = () => {
         if (!file) return;
 
         const reader = new FileReader();
+
         reader.onload = async (ev) => {
+        try {
             const data = new Uint8Array(ev.target.result);
             const workbook = XLSX.read(data, { type: "array" });
             const sheet = workbook.Sheets[workbook.SheetNames[0]];
             const rows = XLSX.utils.sheet_to_json(sheet, { defval: ""});
 
-            let imported = 0;
-            for (const row of rows) {
+            if (!rows || rows.length === 0) {
+                alert("Arquivo vazio ou inválido");
+                return;
+            }
 
+            let imported = 0;
+            let errors = 0;
+
+            for (const row of rows) {
                 try {
+                    const name = String(row.name || row.Nome || row.Name || "").trim();
+                    const price = parseFloat(row.price || row.preco || row.Price || 0);
+                    const quantity = String(row.quantity || row.quantidade || row.Quantity || 0).trim();
+                    const type = String(row.type || row.tipo || row.Type || "").trim().toLowerCase();
+
+                    if (!name || !type) {
+                        console.warn("Linha inválida (faltando name ou type):", row);
+                        errors++;
+                        continue;
+                    }
+
+                    if (isNaN(price) || price <= 0) {
+                        console.warn("Linha inválida (preço inválido):", row);
+                        errors++;
+                        continue;
+                    }
+
+                    const validTypes = ["phone", "console", "computer", "tv", "other"];
+
+                    if (!validTypes.includes(type)) {
+                        console.warn("Linha inválida (tipo inválido):", row, "Tipo:", type);
+                        errors++
+                        continue;
+                    }
+
                     const { data: saved } = await saveProduct({
-                        name: String(row.name || row.Nome || ""),
-                        price: parseFloat(row.price || row.preco || 0).toFixed(2),
-                        quantity: String(row.quantity || row.quantidade || 0),
-                        type: String(row.type || row.tipo || ""),
+                        name,
+                        price,
+                        quantity,
+                        type,
                     });
+
                     setProducts((prev) => [...prev, saved]);
-                    imported++
-                } catch {
-                    console.error("Erro ao importar linha:", row);
+                    imported++;
+
+                } catch (err) {
+                    console.lerror("Erro ao importar linha:", row, err);
+                    // eslint-disable-next-line no-unused-vars
+                    errors++;
                 }
             }
-            alert(`${imported} produto(s) importado(s)!`);
+
+           
+            alert(`${imported} produto(s) importado(s) com sucesso!${errors > 0 ? `${errors} erro(s)` : ""}`);
+        } catch (err) {
+            console.error("Erro ao ler arquivo:", err);
+            alert("Erro ao ler o arquivo. Verifique se é um Excel ou CSV válido.")
         };
-        reader.readAsArrayBuffer(file);
+
         e.target.value = "";
     };
 
+    reader.onerror = () => {
+        alert("Erro ao ler o arquivo.");
+        e.target.value = "";
+    };
+
+      reader.readAsArrayBuffer(file);
+    }  
+
+// Filtrar produtos
     const filteredProducts = products.filter((p) => {
         const matchSearch = p.name.toLowerCase().includes(search.toLowerCase());
         const matchFilter = filter === "all" || p.type === filter;
@@ -111,7 +162,7 @@ const Inventory = () => {
     });
 
     return (
-        <div className=".container">
+        <div className="container">
             <Header />
 
             <ProductForm onProductAdded={handleProductAdded} />
@@ -137,6 +188,6 @@ const Inventory = () => {
             />
         </div>
     );
-};
+ };
 
-export default Inventory;
+export default Inventory

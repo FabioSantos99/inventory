@@ -1,7 +1,16 @@
+import { useRef } from "react";
 import styles from "./Toolbar.module.css";
 
 const InventoryToolbar = ({ search, setSearch, filter, setFilter, onImport, onExport }) => {
     
+    const importInputRef = useRef(null);
+    
+    const handleImportClick = () => {
+        if (importInputRef.current) {
+            importInputRef.current.click();
+        }
+    };
+
     return (
         <div className= {styles.toolbar}>
             <div className= {styles.search}>
@@ -32,20 +41,20 @@ const InventoryToolbar = ({ search, setSearch, filter, setFilter, onImport, onEx
             </div>
 
             <div className= {styles.actions}>
-                <input 
-                type="text" 
+                <input
+                ref={importInputRef}
+                type="file" 
                 className= {styles.importInput}
                 accept=".xlsx, .xls, .csv"
                 onChange={onImport}
                 />
 
                 <button
-                type="button"
-                className={styles.actionButton}
-                onClick={() => document.querySelector("#import-input").click()}
+                    type="button"
+                    className={styles.actionButton}
+                    onClick={handleImportClick}
                 >
                     Import <i className="bi bi-upload"></i>
-
                 </button>
 
                 <button type="button" className={styles.actionButton} onClick={onExport}>
