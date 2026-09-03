@@ -72,3 +72,20 @@
   border-color: var(--border-hi);
   background: var(--surface2);
 }
+
+.themeBtn {
+  padding: 0.5rem 0.8rem;
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  background: transparent;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  color: var(--text);
+  cursor: pointer;
+  transition: background var(--transition), border-color var(--transition);
+}
+
+.themeBtn:hover {
+  background: var(--surface2);
+  border-color: var(--border-hi);
+}

@@ -4,12 +4,14 @@ import { ProtectedRoute, AdminRoute } from './components/ProtectedRoute';
 import Login from "./pages/Login";
 import Inventory from "./pages/Inventory";
 import Users from "./pages/Users";
+import { ThemeProvider } from './context/ThemeContext';
 
 import './styles/global.css';
 
 function App() {
   return(
     <AuthProvider>
+      <ThemeProvider>
       <BrowserRouter>
         <Routes>
           {/* Rota pública */}
@@ -35,9 +37,10 @@ function App() {
           {/* Qualquer rota desconhecida vai para o login */}
           <Route path="*" element={<Navigate to="/login" replace />} />
         </Routes>
-      </BrowserRouter>
+       </BrowserRouter>
+      </ThemeProvider>
     </AuthProvider>
   );
 }
 
-export default App
+export default App;
