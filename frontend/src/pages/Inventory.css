@@ -1,6 +1,6 @@
 .container {
   position: relative;
-  max-width: 760px;
+  max-width: 850px;
   margin: 0 auto;
   background-color: var(--surface);
   border: 1px solid var(--border);

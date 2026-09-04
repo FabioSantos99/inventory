@@ -7,7 +7,7 @@
   --text:           #e8e8e8;
   --text-muted:     #7a7a7a;
   --accent:         #e8e8e8;
-  --danger:         #c0392b;
+  --danger:         #f0250e;
   --danger-hi:      #e74c3c;
   --modal-overlay:  rgba(10, 10, 10, 0.88);
   --input-focus-bg: #1f1f1f;
@@ -21,14 +21,14 @@
 [data-theme="light"] {
   --bg:             #f4f3f0;
   --surface:        #ffffff;
-  --surface2:       #ebebeb;
-  --border:         #dddbd7;
+  --surface2:       #f7f4f4;
+  --border:         #d6d5d5;
   --border-hi:      #b8b5b0;
   --text:           #1a1a1a;
-  --text-muted:     #7a7875;
+  --text-muted:     #363635;
   --accent:         #1a1a1a;
   --danger:         #c0392b;
-  --danger-hi:      #a93226;
+  --danger-hi:      #df0404;
   --modal-overlay:  rgba(200, 198, 195, 0.88);
   --input-focus-bg: #f9f9f7;
 }
